@@ -23,11 +23,13 @@ A rail and station management system with the following functions
 ## Developer
 
 Anandu Sreekumar
+# Phone No
+  * +91-9809579997
 # Email
-anandu.sreekumar@outlook.com
+  * anandu.sreekumar@outlook.com
 # Contact me on
-https://www.linkedin.com/in/anandusreekumar
-https://www.facebook.com/anandusreekumar
-https://www.hackerearth.com/@anandusreekumar
+  * https://www.linkedin.com/in/anandusreekumar
+  * https://www.facebook.com/anandusreekumar
+  * https://www.hackerearth.com/@anandusreekumar
 
 Project Made for Open Source Programming in VIT University
