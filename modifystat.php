@@ -26,7 +26,12 @@ $train_count = $_POST['countmod'];
 		$arival_time = $_POST["arrival_timemod_$i"];
 		$departure_time = $_POST["departure_timemod_$i"];
 		$platform = $_POST["platformmod_$i"];
+if($i == 0)
+        {
+        $query1 = "delete from station where train_no = $train_no";
+		mysql_query($query1, $con) or die(mysql_error());
 
+        }
 		# empty fields
 		if ($station_name == ""
 			|| $arival_time == ""
@@ -54,11 +59,7 @@ $train_count = $_POST['countmod'];
 			mysql_query($query, $con) or die(mysql_error());
 			return;
 		}
-*/ if($i = 0)
-        {
-        $query1 = "delete from station where train_no = '$train_no'";
-		mysql_query($query1, $con) or die(mysql_error());
-        }
+*/ 
 		# +/- 1H condition
 		$src_sec = mysql_fetch_row(mysql_query("select time_to_sec(\"$arival_time\")", $con))[0];
 		$query = "select train_no, time_to_sec(arrival_time) from $STATION_TABLE where station_name = \"$station_name\"";

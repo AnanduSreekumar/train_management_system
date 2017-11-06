@@ -13,7 +13,7 @@
          
          console.log("start");
 
-$('#formadd,#formaddstat,#formmodify,#formdelete,#deletestat,#formmodifystat').on("submit",function(event){
+$('#formadd,#formaddstat,#formmodify,#formdelete,#deletestat,#formmodifystat,#adminaddform').on("submit",function(event){
     console.log("entered");
    event.preventDefault();
    $form=$(this);
@@ -89,7 +89,26 @@ $( "#traindataform" ).hover(function(event){
 
             });
           });
-    
+ $( "#stationdataform" ).hover(function(event){
+    console.log("enteredstationdata");
+   event.preventDefault();
+   $form=$(this);
+
+    $.ajax({
+            type: 'post',
+            url: 'stationdata.php',
+            data: $form.serialize(),
+            success: function (response) {
+            
+             
+        $('#stationdataform').html(response);
+  
+        
+    }
+                           
+
+            });
+          });   
         
          
 $( "#trainidmod" ).keyup(function(event){
@@ -212,7 +231,7 @@ th {
          
    
         <a  id="login" onclick="document.getElementById('id02').style.display='block'" style="text-decoration:none;  " class="anz-animate-top anz-bar-item anz-large anz-button"><b>Login</b></a>
- <a  id="logout"  href="logout.php" style="text-decoration:none; display: none; " class="anz-animate-top anz-bar-item anz-large anz-button"><b> Logout</b></a>
+ 
 
          
  <div id="dl" class=" anz-dropdown-hover" style="display:none;">
@@ -223,9 +242,20 @@ th {
         <a onclick="document.getElementById('traintable').style.display='block'" style="text-decoration:none;  "class="anz-bar-item anz-button">Train</a>
       
    
- <a id="sign-out" style="text-decoration:none;  "class="anz-bar-item anz-button">Station</a>
+ <a onclick="document.getElementById('stationtable').style.display='block'"  style="text-decoration:none;  "class="anz-bar-item anz-button">Station</a>
   </div>
-</div>     
+</div>  
+ <div id="dll" class=" anz-dropdown-hover" style="display:none;">
+             <a style="text-decoration:none;width:150px;  " class="anz-large anz-animate-top anz-button">More</a>
+ 
+  <div class="anz-dropdown-content  anz-black anz-bar-block anz-card-4" style="padding-right:8px;width:230px;">
+     
+        <a onclick="document.getElementById('adminadd').style.display='block'" style="text-decoration:none;  "class="anz-bar-item anz-button">Add Admin</a>
+      
+   
+ <a  id="logout"  href="logout.php" style="text-decoration:none; display: block; " class="anz-animate-top anz-bar-item anz-large anz-button"><b> Logout</b></a>
+  </div>
+</div>         
     </div>   
   
        
@@ -258,7 +288,32 @@ background-color: #424242;" >Login
    
   </form>
 </div>
- <div id="traintable" class="modal">
+       <div id="adminadd" class="modal">
+  
+  <form class="modal-content animate" id="adminaddform" action = "admin.php"  method="post"  >
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('adminadd').style.display='none'" class="close" title="Close Modal">&times;</span>
+      <img src="img/logo.png" alt="logo"  style="width:100px; height:100px; "class="avatar">
+    </div>
+      <center><b><h2>Add Admin</h2></b></center>
+    <div class="container">
+       <label><b>Email  / User Name</b></label>
+      <input type="text" id="useradd"   name="useradd" required>
+
+      <label><b>Password</b></label>
+      <input type="password" id="passadd"   name="passadd" required>
+     <br/>
+    <br/>
+
+        
+      <input type="submit" id="admin" name="admin"  value="Add User" style="
+background-color: black;" > 
+    </div>
+
+   
+  </form>
+</div>
+ <div id="traintable" class="modal" style="overflow: scroll;">
      <div class="modal-content animate" id="train">
       <div class="imgcontainer">
       <span onclick="document.getElementById('traintable').style.display='none'" class="close" title="Close Modal">&times;</span>
@@ -275,10 +330,26 @@ background-color: #424242;" >Login
          <br/>
      </div>
     </div>
-    
+     <div id="stationtable" class="modal" style="overflow: scroll;">
+     <div class="modal-content animate" id="station">
+      <div class="imgcontainer">
+      <span onclick="document.getElementById('stationtable').style.display='none'" class="close" title="Close Modal">&times;</span>
+      <img src="img/logo.png" alt="logo"   style="width:100px; height:100px; "class="avatar">
+    </div> 
+           <center><b><h2>Station Data</h2></b></center>
+           <div id="stationdataform" >
+              
+               <form class="modal-content animate" id="stationdataform" action = "stationdata.php"  method="post"  ><br/> <center><b>Loading....Please wait!!</b></center>
+               <br/><br/></form>
+                  </div>
+         <br/>
+         <br/>
+         <br/>
+     </div>
+    </div>
       <?//modify train pop up modal form
 ?>
-    <div id="modtrain" class="modal">
+<div id="modtrain" class="modal">
   
   <form class="modal-content animate" id="formmodify" action = "modify.php"  method="post"  >
     <div class="imgcontainer">
@@ -317,7 +388,7 @@ background-color: #4b3a3a;" >
 
    
   </form>
-</div>
+    </div>
         <?//modify station pop up modal form
 ?>
     <div id="modstation" class="modal" style="overflow: scroll;">
@@ -586,7 +657,7 @@ background-color: #4b3a3a;" >
    
        function run(){
             document.getElementById('id02').style.display='none';
-     document.getElementById("logout").style.display = "block";
+     document.getElementById("dll").style.display = "block";
          document.getElementById("logo").style.display = "none";
       document.getElementById("login").style.display = "none";
         document.getElementById("sh").style.display = "block";
@@ -603,7 +674,7 @@ background-color: #4b3a3a;" >
         document.getElementById("sh").style.display = "none";
      
         document.getElementById("dl").style.display = "none";
-       document.getElementById("logout").style.display = "none";
+       document.getElementById("dll").style.display = "none";
              }
   
     </script>

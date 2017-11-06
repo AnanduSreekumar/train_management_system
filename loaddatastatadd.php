@@ -27,8 +27,8 @@ if ($result->num_rows > 0) {
 
     $rows = array();
    while($row = $result->fetch_assoc()) {
-      echo '<input type="text" name="number" value="'.$name.'" style="display:none;visibility:hidden;"> 
-                <input type="text" name="count" value="'.$row['stations'].'" style="display:none;visibility:hidden;"> ';
+      echo '<input type="text" id="numbermod" name="numbermod" value="'.$name.'" style="display:none;visibility:hidden;"> 
+                <input type="text" id="countmod" name="countmod" value="'.$row['stations'].'" style="display:none;visibility:hidden;"> ';
           for ($i = 0; $i < $row['stations']; $i++) {
              
               $c=$i+1;
