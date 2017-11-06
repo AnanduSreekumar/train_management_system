@@ -32,5 +32,6 @@ Anandu Sreekumar
   * https://www.facebook.com/anandusreekumar
   * https://www.hackerearth.com/@anandusreekumar
   
-Reg. No 15BIT0007
+
+
 Project Made for **Open Source Programming** in **VIT University** 2017.  
