@@ -1,5 +1,7 @@
 # **Train Management Sytem**
 
+![](https://github.com/AnanduSreekumar/train_management_system/blob/23b3c62f105417d7746c02f4979b39b77e5ebe6d/tms_screenshots/Screenshot%20(123).png)
+
 ## Aim
 A rail and station management system with the following functions
 *  Adding new trains to the database.

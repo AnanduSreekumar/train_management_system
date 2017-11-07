@@ -40,8 +40,8 @@ $conn->close();
 	$SF_STOP_THRESHOLD = 5;	
 
 	# inputs (train)
-$train_no = $_POST['number'];
-$train_count = $_POST['count'];
+$train_no = $_POST['numbermod'];
+$train_count = $_POST['countmod'];
 	$usernam =$_SESSION['uid'];	
 
 	# init table
