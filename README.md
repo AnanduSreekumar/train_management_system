@@ -23,10 +23,8 @@ A rail and station management system with the following functions
   * MySql
 
 ## Developer
-
 Anandu Sreekumar
-### Phone No
-  * +91-9809579997
+
 ###  Email
   * anandu.sreekumar@outlook.com
 ### Contact me on
